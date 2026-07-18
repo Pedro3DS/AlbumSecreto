@@ -9,6 +9,14 @@
    "false" para o desbloqueio real por data entrar em ação. */
 const MODO_TESTE = false;
 
+/* Cada dia recebe uma "cor de assinatura" em rodízio — quente (petal),
+   azul pastel (sky) ou vermelha (berry) — só pra dar mais vida e
+   diferenciar visualmente os cartões. Não precisa mexer aqui. */
+const ACCENTS = ["petal", "sky", "berry"];
+function corDoDia(numeroDoDia){
+  return ACCENTS[(numeroDoDia - 1) % ACCENTS.length];
+}
+
 /* Cada dia da viagem é um item aqui.
    date        -> data em que o dia libera, formato "AAAA-MM-DD"
    phrase      -> a frase do dia
@@ -19,18 +27,18 @@ const MODO_TESTE = false;
 const DIAS = [
   {
     day: 1,
-    date: "2026-07-17",
+    date: "2026-08-10",
     phrase: "o primeiro dia longe também é o primeiro passo de volta.",
     song: {
       title: "EDITE — nome da música 1",
       artist: "EDITE — artista 1",
       cover: "https://placehold.co/200x200/DCCCB4/8A5033?text=capa+1",
-      spotifyUrl: "https://open.spotify.com/intl-pt/track/0r9IFxH4QcwhYb58I7MjFa?si=b6dd63a153f640a9"
+      spotifyUrl: "https://open.spotify.com/"
     }
   },
   {
     day: 2,
-    date: "2026-07-18",
+    date: "2026-08-11",
     phrase: "em algum lugar daí, essa música toca e eu tô pertinho.",
     song: {
       title: "EDITE — nome da música 2",
@@ -63,13 +71,13 @@ const DIAS = [
   },
   {
     day: 5,
-    date: "2026-07-18",
+    date: "2026-08-14",
     phrase: "e no último dia fora, a única coisa que cresce é a vontade de te ver.",
     song: {
-      title: "TE ENCONTRAR",
-      artist: "ÀVUÀ",
-      cover: "./Percorrer.jpg",
-      spotifyUrl: "https://open.spotify.com/intl-pt/track/0r9IFxH4QcwhYb58I7MjFa?si=b6dd63a153f640a9"
+      title: "EDITE — nome da música 5",
+      artist: "EDITE — artista 5",
+      cover: "https://placehold.co/200x200/DCCCB4/8A5033?text=capa+5",
+      spotifyUrl: "https://open.spotify.com/"
     }
   }
 ];
@@ -88,6 +96,26 @@ const ICONE_FLOR = `
     <circle cx="12" cy="12" r="3"></circle>
     <path d="M12 2c1.7 0 3 2 3 4s-1.3 3-3 3-3-1-3-3 1.3-4 3-4zM12 22c1.7 0 3-2 3-4s-1.3-3-3-3-3 1-3 3 1.3 4 3 4zM2 12c0-1.7 2-3 4-3s3 1.3 3 3-1 3-3 3-4-1.3-4-3zM22 12c0-1.7-2-3-4-3s-3 1.3-3 3 1 3 3 3 4-1.3 4-3z"></path>
   </svg>`;
+
+/* =========================================================
+   o "charm" pendurado no selo: varia conforme a cor do dia.
+   enquanto trancado, é sempre o laço cinza neutro.
+   ========================================================= */
+function montarCharm(accent, desbloqueado){
+  if (!desbloqueado){
+    return `<div class="charm-mini"><div class="bow"><span class="knot"></span></div></div>`;
+  }
+  if (accent === "sky"){
+    return `<div class="charm-mini"><div class="bow bow--sky"><span class="knot"></span></div></div>`;
+  }
+  if (accent === "berry"){
+    return `<div class="charm-mini"><div class="heart"></div></div>`;
+  }
+  return `<div class="charm-mini"><div class="flower">
+      <span class="petal"></span><span class="petal"></span><span class="petal"></span>
+      <span class="petal"></span><span class="petal"></span><span class="center"></span>
+    </div></div>`;
+}
 
 /* =========================================================
    utilidades de data
@@ -125,10 +153,14 @@ function diasEntre(a, b){
 function criarPetalas(){
   const container = document.getElementById("petals");
   if (!container) return;
-  const total = window.innerWidth < 480 ? 5 : 9;
+  const formas = ["shape-petal", "shape-heart", "shape-star"];
+  const cores  = ["c-petal", "c-sky", "c-berry"];
+  const total = window.innerWidth < 480 ? 7 : 13;
   for (let i = 0; i < total; i++){
     const p = document.createElement("span");
-    p.className = "petal-fall";
+    const forma = formas[Math.floor(Math.random() * formas.length)];
+    const cor   = cores[Math.floor(Math.random() * cores.length)];
+    p.className = `petal-fall ${forma} ${cor}`;
     p.style.left = `${Math.random() * 100}%`;
     p.style.animationDuration = `${14 + Math.random() * 10}s`;
     p.style.animationDelay = `${Math.random() * 12}s`;
@@ -154,6 +186,8 @@ function montarCartao(item){
   const jaAberto = desbloqueado && localStorage.getItem(`album-secreto-dia-${item.day}`) === "aberto";
 
   article.className = "day-card " + (desbloqueado ? (jaAberto ? "is-open" : "is-ready") : "is-locked");
+  const accent = corDoDia(item.day);
+  article.classList.add(`accent-${accent}`);
   if (ehHoje) article.classList.add("is-today");
 
   article.setAttribute("tabindex", "0");
@@ -172,6 +206,9 @@ function montarCartao(item){
 
   article.innerHTML = `
     <span class="tape" aria-hidden="true"></span>
+    <span class="ribbon-tab" aria-hidden="true"></span>
+    <span class="sprig" aria-hidden="true"><i></i><i></i></span>
+
     <div class="day-card-head">
       <span class="day-number">dia ${String(item.day).padStart(2, "0")}</span>
       <span class="day-date">${formatarDataCurta(item.date)}</span>
@@ -179,7 +216,7 @@ function montarCartao(item){
 
     <div class="seal-wrap" aria-hidden="true">
       <div class="seal-circle">${desbloqueado ? ICONE_FLOR : ICONE_CADEADO}</div>
-      <div class="bow"><span class="knot"></span></div>
+      ${montarCharm(accent, desbloqueado)}
       ${desbloqueado
         ? `<p class="locked-msg">toque para abrir</p>`
         : `<p class="locked-msg">ainda não chegou esse dia<span class="countdown">${mensagemBloqueio}</span></p>`
