@@ -27,19 +27,19 @@ function corDoDia(numeroDoDia) {
 const DIAS = [
   {
     day: 1,
-    date: "2026-07-16",
-    phrase: "O começo de toda viagem também é o começo da saudade. Sei o quanto você batalhou para estar aí, então aproveite cada oportunidade que aparecer. Você não precisa provar nada para ninguém, só viver tudo o que esse momento tem para oferecer.",
+    date: "2026-07-19",
+    phrase: "Hoje a viagem começa. Imagino a mistura de ansiedade, empolgação e aquele friozinho na barriga que sempre aparece antes de algo especial. Mas tem uma coisa que eu sei com certeza: você é muito boa no que faz, e espero que nunca esqueça disso. Aproveite cada momento, conheça pessoas, descubra lugares e viva essa experiência sem pressa. Enquanto isso, eu começo a contar os dias para ter você de volta.",
     song: {
-      title: "EDITE — nome da música 1",
-      artist: "EDITE — artista 1",
-      cover: "https://placehold.co/200x200/DCCCB4/8A5033?text=capa+1",
-      spotifyUrl: "https://open.spotify.com/"
+      title: "MUSICA — AMOR COMPLETO",
+      artist: "MON LA — artista 1",
+      cover: "./amor.jpg",
+      spotifyUrl: "https://open.spotify.com/intl-pt/track/00kIWJu9IHiQ6i0qJAU0Z9?si=6109a75853294635"
     }
   },
   {
     day: 2,
-    date: "2026-07-17",
-    phrase: "Espero que, entre um compromisso e outro, você encontre um tempinho para ouvir o mar, sentir o vento e lembrar que descansar também faz parte do caminho. Nem todo peso precisa ser carregado por você.",
+    date: "2026-07-20",
+    phrase: "Agora os cursos começam de verdade. Tenho certeza de que você vai aprender muita coisa, mas também tenho certeza de que vai ensinar, mesmo sem perceber. O talento que você tem fala por si só. Só não deixa a vontade de fazer tudo perfeito te impedir de aproveitar a praia, caminhar um pouco ou simplesmente admirar o lugar. Nem toda lembrança precisa nascer de uma obrigação.",
     song: {
       title: "EDITE — nome da música 2",
       artist: "EDITE — artista 2",
@@ -49,8 +49,8 @@ const DIAS = [
   },
   {
     day: 3,
-    date: "2026-07-18",
-    phrase: "Tenho certeza de que você vai aprender muita coisa por aí, mas espero que volte trazendo mais do que conhecimento. Que traga histórias, risadas, lembranças e a certeza de que valeu a pena viver cada instante.",
+    date: "2026-07-21",
+    phrase: "Espero que hoje você consiga perceber aquilo que eu já vejo há muito tempo: você é extremamente capaz. Às vezes parece que você esquece disso e exige mais de si do que qualquer outra pessoa exigiria. Então respira. Confia em quem você é. O resto acontece naturalmente.",
     song: {
       title: "EDITE — nome da música 3",
       artist: "EDITE — artista 3",
@@ -61,7 +61,7 @@ const DIAS = [
   {
     day: 4,
     date: "2026-07-22",
-    phrase: "Você sempre foi mais forte do que imagina. Só não esqueça que pessoas fortes também merecem parar um pouco, respirar e simplesmente aproveitar. Tire fotos, caminhe sem pressa, veja o pôr do sol... o mundo pode esperar um pouquinho.",
+    phrase: "Conhecendo você, já deve estar tentando fazer tudo ao mesmo tempo. Só queria te lembrar de uma coisa: você não precisa carregar o mundo inteiro nas costas. Você já é boa o suficiente, mesmo quando decide descansar um pouco. Então aproveita esse lugar, vê o pôr do sol, sente o vento da praia e deixa que alguns momentos existam só para serem vividos.",
     song: {
       title: "EDITE — nome da música 4",
       artist: "EDITE — artista 4",
@@ -71,8 +71,30 @@ const DIAS = [
   },
   {
     day: 5,
-    date: "2026-07-18",
+    date: "2026-07-23",
+    phrase: "Amanhã provavelmente vai ser o dia mais intenso da viagem. Então hoje eu só queria te pedir uma coisa: descansa quando puder. Você já tem toda a habilidade, dedicação e sensibilidade que precisa para fazer um ótimo trabalho. Não tenta compensar nada nem provar nada. Faz do seu jeito, porque o seu jeito sempre foi suficiente.",
+    song: {
+      title: "Álbum — Percorrer em Nós",
+      artist: "ÀVUÀ",
+      cover: "./Percorrer.jpg",
+      spotifyUrl: "https://open.spotify.com/intl-pt/album/5yviPZsValWNPatjlMtbY4?si=b80-4QSnS1KPDUD33SffEA"
+    }
+  },
+  {
+    day: 6,
+    date: "2026-07-24",
     phrase: "Hoje provavelmente vai ser o dia mais cansativo de todos. Sei que você vai dar o seu melhor, porque esse sempre foi o seu jeito. Só promete uma coisa? Não tenta carregar o mundo inteiro nas costas. Respira, confia, vai dar tudo certo. E, como eu aprendi com uma certa pessoinha, eu não vou te desejar boa sorte... mas saiba que vou estar daqui, torcendo muito por você.",
+    song: {
+      title: "Álbum — Percorrer em Nós",
+      artist: "ÀVUÀ",
+      cover: "./Percorrer.jpg",
+      spotifyUrl: "https://open.spotify.com/intl-pt/album/5yviPZsValWNPatjlMtbY4?si=b80-4QSnS1KPDUD33SffEA"
+    }
+  },
+  {
+    day: 7,
+    date: "2026-07-25",
+    phrase: "Enquanto você estiver lendo isso, provavelmente já vai estar voltando para casa... ou talvez já tenha chegado. Espero que essa viagem tenha te lembrado de uma coisa que eu queria muito que você nunca esquecesse: você é muito talentosa. Não porque trabalha sem parar, mas porque coloca um pedaço de você em tudo o que faz. Espero que tenha aprendido bastante, descansado um pouquinho, aproveitado a praia e criado lembranças bonitas. Eu só estava esperando você voltar para poder trocar a saudade pela sua companhia de novo.",
     song: {
       title: "Álbum — Percorrer em Nós",
       artist: "ÀVUÀ",
