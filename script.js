@@ -27,7 +27,7 @@ function corDoDia(numeroDoDia){
 const DIAS = [
   {
     day: 1,
-    date: "2026-08-10",
+    date: "2026-07-19",
     phrase: "o primeiro dia longe também é o primeiro passo de volta.",
     song: {
       title: "EDITE — nome da música 1",
@@ -38,7 +38,7 @@ const DIAS = [
   },
   {
     day: 2,
-    date: "2026-08-11",
+    date: "2026-07-20",
     phrase: "em algum lugar daí, essa música toca e eu tô pertinho.",
     song: {
       title: "EDITE — nome da música 2",
@@ -49,7 +49,7 @@ const DIAS = [
   },
   {
     day: 3,
-    date: "2026-08-12",
+    date: "2026-07-21",
     phrase: "mais um dia riscado no calendário da saudade.",
     song: {
       title: "EDITE — nome da música 3",
@@ -60,7 +60,7 @@ const DIAS = [
   },
   {
     day: 4,
-    date: "2026-08-13",
+    date: "2026-07-22",
     phrase: "essa aqui eu escolhi pensando exatamente em você.",
     song: {
       title: "EDITE — nome da música 4",
@@ -71,7 +71,7 @@ const DIAS = [
   },
   {
     day: 5,
-    date: "2026-08-14",
+    date: "2026-07-23",
     phrase: "e no último dia fora, a única coisa que cresce é a vontade de te ver.",
     song: {
       title: "EDITE — nome da música 5",
