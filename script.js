@@ -13,7 +13,7 @@ const MODO_TESTE = false;
    azul pastel (sky) ou vermelha (berry) — só pra dar mais vida e
    diferenciar visualmente os cartões. Não precisa mexer aqui. */
 const ACCENTS = ["petal", "sky", "berry"];
-function corDoDia(numeroDoDia){
+function corDoDia(numeroDoDia) {
   return ACCENTS[(numeroDoDia - 1) % ACCENTS.length];
 }
 
@@ -27,8 +27,8 @@ function corDoDia(numeroDoDia){
 const DIAS = [
   {
     day: 1,
-    date: "2026-07-19",
-    phrase: "o primeiro dia longe também é o primeiro passo de volta.",
+    date: "2026-07-16",
+    phrase: "O começo de toda viagem também é o começo da saudade. Sei o quanto você batalhou para estar aí, então aproveite cada oportunidade que aparecer. Você não precisa provar nada para ninguém, só viver tudo o que esse momento tem para oferecer.",
     song: {
       title: "EDITE — nome da música 1",
       artist: "EDITE — artista 1",
@@ -38,8 +38,8 @@ const DIAS = [
   },
   {
     day: 2,
-    date: "2026-07-20",
-    phrase: "em algum lugar daí, essa música toca e eu tô pertinho.",
+    date: "2026-07-17",
+    phrase: "Espero que, entre um compromisso e outro, você encontre um tempinho para ouvir o mar, sentir o vento e lembrar que descansar também faz parte do caminho. Nem todo peso precisa ser carregado por você.",
     song: {
       title: "EDITE — nome da música 2",
       artist: "EDITE — artista 2",
@@ -49,8 +49,8 @@ const DIAS = [
   },
   {
     day: 3,
-    date: "2026-07-21",
-    phrase: "mais um dia riscado no calendário da saudade.",
+    date: "2026-07-18",
+    phrase: "Tenho certeza de que você vai aprender muita coisa por aí, mas espero que volte trazendo mais do que conhecimento. Que traga histórias, risadas, lembranças e a certeza de que valeu a pena viver cada instante.",
     song: {
       title: "EDITE — nome da música 3",
       artist: "EDITE — artista 3",
@@ -61,7 +61,7 @@ const DIAS = [
   {
     day: 4,
     date: "2026-07-22",
-    phrase: "essa aqui eu escolhi pensando exatamente em você.",
+    phrase: "Você sempre foi mais forte do que imagina. Só não esqueça que pessoas fortes também merecem parar um pouco, respirar e simplesmente aproveitar. Tire fotos, caminhe sem pressa, veja o pôr do sol... o mundo pode esperar um pouquinho.",
     song: {
       title: "EDITE — nome da música 4",
       artist: "EDITE — artista 4",
@@ -71,13 +71,13 @@ const DIAS = [
   },
   {
     day: 5,
-    date: "2026-07-23",
-    phrase: "e no último dia fora, a única coisa que cresce é a vontade de te ver.",
+    date: "2026-07-18",
+    phrase: "Hoje provavelmente vai ser o dia mais cansativo de todos. Sei que você vai dar o seu melhor, porque esse sempre foi o seu jeito. Só promete uma coisa? Não tenta carregar o mundo inteiro nas costas. Respira, confia, vai dar tudo certo. E, como eu aprendi com uma certa pessoinha, eu não vou te desejar boa sorte... mas saiba que vou estar daqui, torcendo muito por você.",
     song: {
-      title: "EDITE — nome da música 5",
-      artist: "EDITE — artista 5",
-      cover: "https://placehold.co/200x200/DCCCB4/8A5033?text=capa+5",
-      spotifyUrl: "https://open.spotify.com/"
+      title: "Álbum — Percorrer em Nós",
+      artist: "ÀVUÀ",
+      cover: "./Percorrer.jpg",
+      spotifyUrl: "https://open.spotify.com/intl-pt/album/5yviPZsValWNPatjlMtbY4?si=b80-4QSnS1KPDUD33SffEA"
     }
   }
 ];
@@ -101,14 +101,14 @@ const ICONE_FLOR = `
    o "charm" pendurado no selo: varia conforme a cor do dia.
    enquanto trancado, é sempre o laço cinza neutro.
    ========================================================= */
-function montarCharm(accent, desbloqueado){
-  if (!desbloqueado){
+function montarCharm(accent, desbloqueado) {
+  if (!desbloqueado) {
     return `<div class="charm-mini"><div class="bow"><span class="knot"></span></div></div>`;
   }
-  if (accent === "sky"){
+  if (accent === "sky") {
     return `<div class="charm-mini"><div class="bow bow--sky"><span class="knot"></span></div></div>`;
   }
-  if (accent === "berry"){
+  if (accent === "berry") {
     return `<div class="charm-mini"><div class="heart"></div></div>`;
   }
   return `<div class="charm-mini"><div class="flower">
@@ -120,29 +120,29 @@ function montarCharm(accent, desbloqueado){
 /* =========================================================
    utilidades de data
    ========================================================= */
-function apenasData(d){
+function apenasData(d) {
   return new Date(d.getFullYear(), d.getMonth(), d.getDate());
 }
 
-function hojeSemHora(){
+function hojeSemHora() {
   return apenasData(new Date());
 }
 
 /* new Date("AAAA-MM-DD") é interpretado como UTC pelo navegador, o que
    pode "voltar" um dia em fusos negativos como o do Brasil. Por isso
    montamos a data manualmente, sempre no horário local. */
-function parseDataLocal(iso){
+function parseDataLocal(iso) {
   const [ano, mes, dia] = iso.split("-").map(Number);
   return new Date(ano, mes - 1, dia);
 }
 
-function formatarDataCurta(isoDate){
+function formatarDataCurta(isoDate) {
   return parseDataLocal(isoDate)
-    .toLocaleDateString("pt-BR", { day:"2-digit", month:"short" })
+    .toLocaleDateString("pt-BR", { day: "2-digit", month: "short" })
     .replace(".", "");
 }
 
-function diasEntre(a, b){
+function diasEntre(a, b) {
   const MS_DIA = 1000 * 60 * 60 * 24;
   return Math.round((b - a) / MS_DIA);
 }
@@ -150,16 +150,16 @@ function diasEntre(a, b){
 /* =========================================================
    pétalas ambiente
    ========================================================= */
-function criarPetalas(){
+function criarPetalas() {
   const container = document.getElementById("petals");
   if (!container) return;
   const formas = ["shape-petal", "shape-heart", "shape-star"];
-  const cores  = ["c-petal", "c-sky", "c-berry"];
+  const cores = ["c-petal", "c-sky", "c-berry"];
   const total = window.innerWidth < 480 ? 7 : 13;
-  for (let i = 0; i < total; i++){
+  for (let i = 0; i < total; i++) {
     const p = document.createElement("span");
     const forma = formas[Math.floor(Math.random() * formas.length)];
-    const cor   = cores[Math.floor(Math.random() * cores.length)];
+    const cor = cores[Math.floor(Math.random() * cores.length)];
     p.className = `petal-fall ${forma} ${cor}`;
     p.style.left = `${Math.random() * 100}%`;
     p.style.animationDuration = `${14 + Math.random() * 10}s`;
@@ -172,7 +172,7 @@ function criarPetalas(){
 /* =========================================================
    monta um cartão de dia
    ========================================================= */
-function montarCartao(item){
+function montarCartao(item) {
   const dataDoDia = parseDataLocal(item.date);
   const hoje = hojeSemHora();
   const diferenca = diasEntre(hoje, dataDoDia); // > 0 = futuro, 0 = hoje, < 0 = passado
@@ -191,7 +191,7 @@ function montarCartao(item){
   if (ehHoje) article.classList.add("is-today");
 
   article.setAttribute("tabindex", "0");
-  if (!desbloqueado){
+  if (!desbloqueado) {
     article.setAttribute("role", "group");
     article.setAttribute("aria-label", `dia ${item.day}, ainda trancado, faltam ${diferenca} dia(s)`);
   } else {
@@ -218,9 +218,9 @@ function montarCartao(item){
       <div class="seal-circle">${desbloqueado ? ICONE_FLOR : ICONE_CADEADO}</div>
       ${montarCharm(accent, desbloqueado)}
       ${desbloqueado
-        ? `<p class="locked-msg">toque para abrir</p>`
-        : `<p class="locked-msg">ainda não chegou esse dia<span class="countdown">${mensagemBloqueio}</span></p>`
-      }
+      ? `<p class="locked-msg">toque para abrir</p>`
+      : `<p class="locked-msg">ainda não chegou esse dia<span class="countdown">${mensagemBloqueio}</span></p>`
+    }
     </div>
 
     <div class="card-content"><div>
@@ -245,12 +245,12 @@ function montarCartao(item){
 /* =========================================================
    interações
    ========================================================= */
-function abrirNoSpotify(url){
+function abrirNoSpotify(url) {
   if (!url) return;
   window.open(url, "_blank", "noopener");
 }
 
-function alternarAbertura(article, item){
+function alternarAbertura(article, item) {
   const aberto = article.classList.toggle("is-open");
   article.classList.remove("is-ready");
   if (!aberto) article.classList.add("is-ready");
@@ -258,20 +258,20 @@ function alternarAbertura(article, item){
   localStorage.setItem(`album-secreto-dia-${item.day}`, aberto ? "aberto" : "fechado");
 }
 
-function tremer(article){
+function tremer(article) {
   article.classList.add("is-shaking");
   setTimeout(() => article.classList.remove("is-shaking"), 400);
 }
 
-function ligarEventos(article, item, desbloqueado){
+function ligarEventos(article, item, desbloqueado) {
   const clicar = (e) => {
     const musicCard = e.target.closest(".music-card");
-    if (musicCard){
+    if (musicCard) {
       e.stopPropagation();
       abrirNoSpotify(musicCard.dataset.spotify);
       return;
     }
-    if (!desbloqueado){
+    if (!desbloqueado) {
       tremer(article);
       return;
     }
@@ -280,7 +280,7 @@ function ligarEventos(article, item, desbloqueado){
 
   article.addEventListener("click", clicar);
   article.addEventListener("keydown", (e) => {
-    if (e.key === "Enter" || e.key === " "){
+    if (e.key === "Enter" || e.key === " ") {
       e.preventDefault();
       clicar(e);
     }
@@ -290,7 +290,7 @@ function ligarEventos(article, item, desbloqueado){
 /* =========================================================
    progresso no topo
    ========================================================= */
-function atualizarProgresso(qtdDesbloqueados, total){
+function atualizarProgresso(qtdDesbloqueados, total) {
   const el = document.getElementById("progress");
   if (!el) return;
   el.textContent = qtdDesbloqueados === 0
@@ -301,7 +301,7 @@ function atualizarProgresso(qtdDesbloqueados, total){
 /* =========================================================
    inicialização
    ========================================================= */
-function iniciar(){
+function iniciar() {
   criarPetalas();
 
   const timeline = document.getElementById("timeline");
