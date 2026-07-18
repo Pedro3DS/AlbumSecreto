@@ -1,0 +1,482 @@
+/* =========================================================
+   ÁLBUM SECRETO — estilos
+   Paleta: #97A3AE (ardósia) · #DCCCB4 (papel) · #8A5033 (cacau)
+   ========================================================= */
+
+:root{
+  --paper:        #DCCCB4;
+  --paper-light:  #F1E7D8;
+  --paper-dark:   #C9B693;
+  --cocoa:        #8A5033;
+  --cocoa-dark:   #6B3C25;
+  --ink:          #4A3226;
+  --slate:        #97A3AE;
+  --slate-dark:   #707C87;
+  --petal:        #C98A6B;
+  --petal-light:  #E3B79A;
+  --shadow:       rgba(74,50,38,0.20);
+
+  --font-display: 'Caveat', cursive;
+  --font-body:    'Quicksand', sans-serif;
+}
+
+*{ box-sizing:border-box; }
+
+html{
+  scroll-behavior:smooth;
+  overflow-x:hidden;
+  width:100%;
+}
+
+body{
+  margin:0;
+  min-height:100vh;
+  width:100%;
+  font-family:var(--font-body);
+  color:var(--ink);
+  background:
+    radial-gradient(circle at 15% 10%, var(--paper-light) 0%, transparent 45%),
+    radial-gradient(circle at 85% 90%, var(--paper-light) 0%, transparent 40%),
+    var(--paper);
+  overflow-x:hidden;
+  position:relative;
+}
+
+/* =========================================================
+   pétalas ambiente (só decoração, não clicáveis)
+   ========================================================= */
+.petals{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  overflow:hidden;
+  z-index:1;
+}
+.petals .petal-fall{
+  position:absolute;
+  top:-5vh;
+  width:10px;
+  height:14px;
+  background:var(--petal-light);
+  border-radius:50% 0 50% 50%;
+  opacity:0.55;
+  animation-name:fall;
+  animation-timing-function:linear;
+  animation-iteration-count:infinite;
+}
+@keyframes fall{
+  0%{   transform:translate(0,0) rotate(0deg);   opacity:0; }
+  10%{  opacity:0.55; }
+  90%{  opacity:0.45; }
+  100%{ transform:translate(20px,115vh) rotate(280deg); opacity:0; }
+}
+
+/* =========================================================
+   flor decorativa reutilizável (cantos, rodapé)
+   ========================================================= */
+.flower{
+  position:relative;
+  width:60px;
+  height:60px;
+}
+.flower .petal{
+  position:absolute;
+  top:50%; left:50%;
+  width:22px; height:24px;
+  background:var(--petal);
+  border-radius:50% 0 50% 50%;
+  transform-origin:center;
+  opacity:0.9;
+}
+.flower .petal:nth-child(1){ transform:translate(-50%,-50%) rotate(0deg)   translateY(-15px); }
+.flower .petal:nth-child(2){ transform:translate(-50%,-50%) rotate(72deg)  translateY(-15px); }
+.flower .petal:nth-child(3){ transform:translate(-50%,-50%) rotate(144deg) translateY(-15px); }
+.flower .petal:nth-child(4){ transform:translate(-50%,-50%) rotate(216deg) translateY(-15px); }
+.flower .petal:nth-child(5){ transform:translate(-50%,-50%) rotate(288deg) translateY(-15px); }
+.flower .center{
+  position:absolute;
+  top:50%; left:50%;
+  width:14px; height:14px;
+  margin:-7px 0 0 -7px;
+  background:var(--cocoa);
+  border-radius:50%;
+}
+
+/* =========================================================
+   laço / bow reutilizável (usado no selo dos cartões)
+   ========================================================= */
+.bow{ position:relative; width:44px; height:26px; margin:0 auto; }
+.bow::before,
+.bow::after{
+  content:"";
+  position:absolute;
+  top:0;
+  width:20px; height:20px;
+  border-radius:50% 50% 50% 0;
+}
+.bow::before{ left:0;  transform:rotate(45deg); }
+.bow::after{  right:0; transform:rotate(-45deg) scaleX(-1); }
+.bow .knot{
+  position:absolute;
+  left:50%; top:50%;
+  width:10px; height:10px;
+  border-radius:50%;
+  transform:translate(-50%,-50%);
+}
+
+/* =========================================================
+   cabeçalho / carta de abertura
+   ========================================================= */
+.hero{
+  position:relative;
+  max-width:640px;
+  margin:0 auto;
+  padding:56px 20px 32px;
+  text-align:center;
+  z-index:2;
+}
+
+.flower--tl{ position:absolute; top:6px;  left:-6px; }
+.flower--tr{ position:absolute; top:6px;  right:-6px; transform:scaleX(-1); }
+
+.hero-eyebrow{
+  margin:0 0 4px;
+  font-size:0.8rem;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:var(--slate-dark);
+  font-weight:600;
+}
+
+.hero-title{
+  margin:0 0 24px;
+  font-family:var(--font-display);
+  font-weight:700;
+  font-size:clamp(2.6rem, 9vw, 4rem);
+  line-height:1.05;
+  color:var(--cocoa-dark);
+}
+
+.letter-card{
+  position:relative;
+  background:var(--paper-light);
+  border-radius:6px;
+  padding:26px 24px 22px;
+  box-shadow:0 10px 24px -8px var(--shadow), 0 2px 0 rgba(255,255,255,0.4) inset;
+  transform:rotate(-0.6deg);
+  text-align:left;
+}
+
+.letter-text{
+  margin:0;
+  font-size:1.05rem;
+  line-height:1.6;
+  color:var(--ink);
+}
+
+.tape{
+  position:absolute;
+  width:76px; height:26px;
+  background:rgba(151,163,174,0.45);
+  border:1px solid rgba(151,163,174,0.3);
+  box-shadow:0 2px 4px var(--shadow);
+}
+.tape--a{ top:-12px; left:calc(50% - 38px); transform:rotate(-3deg); }
+
+.hero-progress{
+  margin:22px 0 0;
+  font-size:0.9rem;
+  color:var(--slate-dark);
+  font-weight:600;
+  letter-spacing:0.02em;
+}
+
+/* =========================================================
+   linha do tempo / cartões dos dias
+   ========================================================= */
+.timeline{
+  position:relative;
+  max-width:560px;
+  margin:0 auto;
+  padding:12px 20px 40px;
+  display:flex;
+  flex-direction:column;
+  gap:26px;
+  z-index:2;
+}
+
+.day-card{
+  position:relative;
+  background:var(--paper-light);
+  border-radius:10px;
+  padding:20px 20px 22px;
+  box-shadow:0 10px 22px -10px var(--shadow);
+  transition:transform 0.25s ease, box-shadow 0.25s ease;
+}
+.day-card:nth-child(odd){ transform:rotate(-0.5deg); }
+.day-card:nth-child(even){ transform:rotate(0.5deg); }
+.day-card:hover{ transform:translateY(-3px) rotate(0deg); box-shadow:0 16px 30px -12px var(--shadow); }
+
+.day-card .tape{
+  top:-13px; left:calc(50% - 38px);
+}
+.day-card:nth-child(odd) .tape{ transform:rotate(2deg); }
+.day-card:nth-child(even) .tape{ transform:rotate(-2deg); }
+
+.day-card-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  margin-bottom:6px;
+}
+.day-number{
+  font-family:var(--font-display);
+  font-size:1.6rem;
+  font-weight:700;
+  color:var(--cocoa-dark);
+}
+.day-date{
+  font-size:0.82rem;
+  font-weight:600;
+  letter-spacing:0.04em;
+  text-transform:uppercase;
+  color:var(--slate-dark);
+}
+
+.day-card.is-today .day-number::after{
+  content:"✦ hoje";
+  margin-left:8px;
+  font-family:var(--font-body);
+  font-size:0.68rem;
+  font-weight:700;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  color:var(--petal);
+  vertical-align:middle;
+}
+
+/* ---- estado: bloqueado ---- */
+.day-card.is-locked{ cursor:default; }
+.day-card.is-locked .seal-circle{ background:radial-gradient(circle at 35% 30%, var(--slate) 0%, var(--slate-dark) 75%); }
+.day-card.is-locked .bow::before,
+.day-card.is-locked .bow::after{ background:var(--slate-dark); }
+.day-card.is-locked .bow .knot{ background:var(--ink); }
+
+.seal-wrap{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:10px;
+  padding:14px 0 4px;
+}
+.seal-circle{
+  width:52px; height:52px;
+  border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  box-shadow:0 4px 10px var(--shadow), inset 0 2px 3px rgba(255,255,255,0.25);
+}
+.seal-circle svg{ width:22px; height:22px; }
+
+.locked-msg{
+  margin:0;
+  text-align:center;
+  font-size:0.88rem;
+  color:var(--slate-dark);
+  font-weight:600;
+}
+.locked-msg .countdown{
+  display:block;
+  margin-top:2px;
+  font-family:var(--font-display);
+  font-size:1.15rem;
+  color:var(--cocoa-dark);
+}
+
+/* tremor de feedback ao tocar num dia bloqueado */
+@keyframes shake{
+  0%,100%{ transform:translateX(0) rotate(0deg); }
+  20%{ transform:translateX(-4px) rotate(-1deg); }
+  40%{ transform:translateX(4px) rotate(1deg); }
+  60%{ transform:translateX(-3px) rotate(-0.5deg); }
+  80%{ transform:translateX(3px) rotate(0.5deg); }
+}
+.day-card.is-shaking{ animation:shake 0.4s ease; }
+
+/* ---- estado: pronto para abrir (desbloqueado, ainda fechado) ---- */
+.day-card.is-ready{ cursor:pointer; }
+.day-card.is-ready .seal-circle{
+  background:radial-gradient(circle at 35% 30%, var(--petal-light) 0%, var(--petal) 75%);
+  animation:pulse 2.4s ease-in-out infinite;
+}
+@keyframes pulse{
+  0%,100%{ box-shadow:0 4px 10px var(--shadow), inset 0 2px 3px rgba(255,255,255,0.25); }
+  50%{ box-shadow:0 4px 16px rgba(201,138,107,0.55), inset 0 2px 3px rgba(255,255,255,0.35); }
+}
+.day-card.is-ready .locked-msg{ color:var(--cocoa-dark); }
+
+/* ---- conteúdo revelado (aberto) ---- */
+.card-content{
+  display:grid;
+  grid-template-rows:0fr;
+  opacity:0;
+  transition:grid-template-rows 0.5s ease, opacity 0.4s ease 0.05s;
+}
+.card-content > div{ overflow:hidden; }
+.day-card.is-open .card-content{
+  grid-template-rows:1fr;
+  opacity:1;
+}
+.day-card.is-open .seal-wrap{
+  display:none;
+}
+
+.phrase{
+  margin:10px 4px 18px;
+  font-family:var(--font-display);
+  font-size:1.4rem;
+  line-height:1.3;
+  color:var(--ink);
+}
+
+/* ---- cartão de música ---- */
+.music-card{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  background:var(--paper);
+  border-radius:12px;
+  padding:12px 16px 12px 8px;
+  cursor:pointer;
+  transition:background 0.2s ease, transform 0.2s ease;
+}
+.music-card:hover{ background:var(--paper-dark); transform:translateY(-2px); }
+
+.music-art{
+  position:relative;
+  width:60px; height:60px;
+  flex:none;
+}
+.vinyl{
+  position:absolute;
+  top:50%; left:14px;
+  transform:translateY(-50%);
+  width:56px; height:56px;
+  border-radius:50%;
+  background:
+    repeating-radial-gradient(circle at center,
+      #2b2b2b 0px, #2b2b2b 2px,
+      #3a3a3a 2px, #3a3a3a 4px);
+  box-shadow:0 2px 6px var(--shadow);
+  animation:spin 9s linear infinite;
+  animation-play-state:paused;
+}
+.day-card.is-open .vinyl{ animation-play-state:running; }
+.vinyl::after{
+  content:"";
+  position:absolute;
+  top:50%; left:50%;
+  width:18px; height:18px;
+  margin:-9px 0 0 -9px;
+  border-radius:50%;
+  background:var(--petal);
+}
+@keyframes spin{ from{ transform:translateY(-50%) rotate(0deg); } to{ transform:translateY(-50%) rotate(360deg); } }
+
+.cover{
+  position:relative;
+  left:14px;
+  width:52px; height:52px;
+  border-radius:6px;
+  object-fit:cover;
+  box-shadow:0 3px 8px var(--shadow);
+  background:var(--paper-dark);
+}
+
+.music-meta{
+  display:flex;
+  flex-direction:column;
+  gap:1px;
+  min-width:0;
+}
+.music-title{
+  font-weight:700;
+  font-size:0.98rem;
+  color:var(--ink);
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.music-artist{
+  font-size:0.82rem;
+  color:var(--slate-dark);
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.play-hint{
+  margin-left:auto;
+  flex:none;
+  font-size:0.74rem;
+  font-weight:600;
+  color:var(--cocoa);
+  opacity:0.75;
+  padding-left:8px;
+}
+
+/* =========================================================
+   rodapé
+   ========================================================= */
+.site-footer{
+  position:relative;
+  z-index:2;
+  max-width:560px;
+  margin:0 auto;
+  padding:12px 20px 48px;
+  text-align:center;
+}
+.footer-flower{ margin:0 auto 6px; transform:scale(0.7); }
+.footer-text{
+  margin:0;
+  font-size:0.82rem;
+  color:var(--slate-dark);
+  letter-spacing:0.02em;
+}
+.footer-text strong{ color:var(--cocoa-dark); }
+
+/* =========================================================
+   foco de teclado
+   ========================================================= */
+.day-card:focus-visible,
+.music-card:focus-visible{
+  outline:3px solid var(--cocoa);
+  outline-offset:3px;
+}
+
+/* =========================================================
+   responsivo
+   ========================================================= */
+@media (max-width:420px){
+  .flower--tl, .flower--tr{ transform:scale(0.55); }
+  .flower--tr{ transform:scale(0.55) scaleX(-1); }
+  .flower--tl{ top:-6px; left:-16px; }
+  .flower--tr{ top:-6px; right:-16px; }
+  .hero{ padding-top:44px; }
+  .music-title{ max-width:120px; }
+  .music-artist{ max-width:120px; }
+}
+
+@media (min-width:640px){
+  .music-title, .music-artist{ max-width:none; }
+}
+
+/* =========================================================
+   respeita quem prefere menos movimento
+   ========================================================= */
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior:auto; }
+  .petals{ display:none; }
+  .vinyl{ animation:none; }
+  .day-card.is-ready .seal-circle{ animation:none; }
+  .day-card, .music-card{ transition:none; }
+  .card-content{ transition:none; }
+}
