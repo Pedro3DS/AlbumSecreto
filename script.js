@@ -28,10 +28,10 @@ const DIAS = [
   {
     day: 1,
     date: "2026-07-19",
-    phrase: "Hoje a viagem começa. Imagino a mistura de ansiedade, empolgação e aquele friozinho na barriga que sempre aparece antes de algo especial. Mas tem uma coisa que eu sei com certeza: você é muito boa no que faz, e espero que nunca esqueça disso. Aproveite cada momento, conheça pessoas, descubra lugares e viva essa experiência sem pressa. Enquanto isso, eu começo a contar os dias para ter você de volta.",
+    phrase: "Hoje a viagem começa. Imagino a mistura de ansiedade, empolgação que sempre aparece antes de algo especial. Aproveite cada momento, conheça pessoas, descubra lugares e aproveite os cursos. Enquanto isso, eu começo a contar os dias para ter você de volta. Boa Viagem, Meu Bem!",
     song: {
-      title: "MUSICA — AMOR COMPLETO",
-      artist: "MON LA — artista 1",
+      title: "MÚSICA — AMOR COMPLETO",
+      artist: "MON LAFERTE",
       cover: "./amor.jpg",
       spotifyUrl: "https://open.spotify.com/intl-pt/track/00kIWJu9IHiQ6i0qJAU0Z9?si=6109a75853294635"
     }
@@ -41,10 +41,10 @@ const DIAS = [
     date: "2026-07-20",
     phrase: "Agora os cursos começam de verdade. Tenho certeza de que você vai aprender muita coisa, mas também tenho certeza de que vai ensinar, mesmo sem perceber. O talento que você tem fala por si só. Só não deixa a vontade de fazer tudo perfeito te impedir de aproveitar a praia, caminhar um pouco ou simplesmente admirar o lugar. Nem toda lembrança precisa nascer de uma obrigação.",
     song: {
-      title: "EDITE — nome da música 2",
-      artist: "EDITE — artista 2",
-      cover: "https://placehold.co/200x200/DCCCB4/8A5033?text=capa+2",
-      spotifyUrl: "https://open.spotify.com/"
+      title: "MÚSICA — EU & VOCÊ",
+      artist: "MESTRINHO",
+      cover: "./euvoce.jpg",
+      spotifyUrl: "https://open.spotify.com/intl-pt/track/208OvbnQKMT7rcsP8q3BQK?si=fcfd51bba310417b"
     }
   },
   {
