@@ -20,6 +20,9 @@ function corDoDia(numeroDoDia) {
 /* Cada dia da viagem é um item aqui.
    date        -> data em que o dia libera, formato "AAAA-MM-DD"
    phrase      -> a frase do dia
+   song        -> pode ser UM objeto { title, artist, cover, spotifyUrl }
+                  ou uma LISTA de objetos [{...}, {...}] se quiser mais
+                  de uma música no mesmo dia — os dois formatos funcionam.
    song.cover  -> link de uma imagem (pode usar a própria capa do Spotify:
                   clique com o botão direito na capa da música no Spotify
                   Web e "copiar endereço da imagem")
@@ -38,24 +41,30 @@ const DIAS = [
   },
   {
     day: 2,
-    date: "2026-07-20",
-    phrase: "Agora os cursos começam de verdade. Tenho certeza de que você vai aprender muita coisa, mas também tenho certeza de que vai ensinar, mesmo sem perceber. O talento que você tem fala por si só. Só não deixa a vontade de fazer tudo perfeito te impedir de aproveitar a praia, caminhar um pouco ou simplesmente admirar o lugar. Nem toda lembrança precisa nascer de uma obrigação.",
-    song: {
-      title: "MÚSICA — EU & VOCÊ",
-      artist: "MESTRINHO",
-      cover: "./euvoce.jpg",
-      spotifyUrl: "https://open.spotify.com/intl-pt/track/208OvbnQKMT7rcsP8q3BQK?si=fcfd51bba310417b"
-    }
+    date: "2026-07-19",
+    phrase: "Agora a correria começa de verdade. Mas, como você disse, os cursos vão ser fáceis para você, e, sinceramente, nem precisava dizer, porque eu sei o quão talentosa, dedicada e capaz você é. Só não deixe a vontade de fazer tudo perfeito te sobrecarregar. Lembre-se de aproveitar tanto as pessoas à sua volta quanto a cidade, mesmo quando já estiver muito cansadinha. Boa sorte, meu mouse de maracujá com cobertura de chocolate!",
+    song: [{
+      title: "ÁLBUM — RAIZ",
+      artist: "FRAN",
+      cover: "./raiz.jpg",
+      spotifyUrl: "https://open.spotify.com/intl-pt/album/0YetCaCRXkQxlnVAhWBJA5?si=EA9ZMZnLROGsCxWH8LWmLg"
+    },
+    {
+      title: "MÚSICA — VUMBORA AMAR",
+      artist: "ADRIANA CALCANHOTTO, FRAN, UBUNTO",
+      cover: "./vumbora.jpg",
+      spotifyUrl: "https://open.spotify.com/intl-pt/track/2NVXuJjaw6TJHh0raYymLQ?si=fef0a6a1f0be4a50"
+    }]
   },
   {
     day: 3,
     date: "2026-07-21",
     phrase: "Espero que hoje você consiga perceber aquilo que eu já vejo há muito tempo: você é extremamente capaz. Às vezes parece que você esquece disso e exige mais de si do que qualquer outra pessoa exigiria. Então respira. Confia em quem você é. O resto acontece naturalmente.",
     song: {
-      title: "EDITE — nome da música 3",
-      artist: "EDITE — artista 3",
-      cover: "https://placehold.co/200x200/DCCCB4/8A5033?text=capa+3",
-      spotifyUrl: "https://open.spotify.com/"
+      title: "MÚSICA — EU & VOCÊ",
+      artist: "MESTRINHO",
+      cover: "./euvoce.jpg",
+      spotifyUrl: "https://open.spotify.com/intl-pt/track/208OvbnQKMT7rcsP8q3BQK?si=fcfd51bba310417b"
     }
   },
   {
@@ -137,6 +146,16 @@ function montarCharm(accent, desbloqueado) {
       <span class="petal"></span><span class="petal"></span><span class="petal"></span>
       <span class="petal"></span><span class="petal"></span><span class="center"></span>
     </div></div>`;
+}
+
+/* =========================================================
+   pega a(s) música(s) de um dia, aceitando os dois formatos:
+   song: {...}  (uma música só)  ou  song: [{...}, {...}]  (várias)
+   ========================================================= */
+function obterMusicas(item) {
+  if (Array.isArray(item.songs)) return item.songs;
+  if (Array.isArray(item.song)) return item.song;
+  return [item.song];
 }
 
 /* =========================================================
@@ -226,6 +245,21 @@ function montarCartao(item) {
     ? "falta 1 dia"
     : `faltam ${diferenca} dias`;
 
+  const musicas = obterMusicas(item);
+  const musicasHtml = musicas.map((song) => `
+      <div class="music-card" tabindex="0" role="link" aria-label="ouvir ${song.title} de ${song.artist} no spotify" data-spotify="${song.spotifyUrl}">
+        <div class="music-art">
+          <div class="vinyl"></div>
+          <img class="cover" src="${song.cover}" alt="capa de ${song.title}" loading="lazy">
+        </div>
+        <div class="music-meta">
+          <span class="music-title">${song.title}</span>
+          <span class="music-artist">${song.artist}</span>
+        </div>
+        <span class="play-hint">spotify →</span>
+      </div>
+  `).join("");
+
   article.innerHTML = `
     <span class="tape" aria-hidden="true"></span>
     <span class="ribbon-tab" aria-hidden="true"></span>
@@ -247,17 +281,8 @@ function montarCartao(item) {
 
     <div class="card-content"><div>
       <p class="phrase">${item.phrase}</p>
-      <div class="music-card" tabindex="0" role="link" aria-label="ouvir ${item.song.title} de ${item.song.artist} no spotify" data-spotify="${item.song.spotifyUrl}">
-        <div class="music-art">
-          <div class="vinyl"></div>
-          <img class="cover" src="${item.song.cover}" alt="capa de ${item.song.title}" loading="lazy">
-        </div>
-        <div class="music-meta">
-          <span class="music-title">${item.song.title}</span>
-          <span class="music-artist">${item.song.artist}</span>
-        </div>
-        <span class="play-hint">spotify →</span>
-      </div>
+      ${musicas.length > 1 ? `<p class="music-list-label">álbum e música do dia</p>` : ""}
+      <div class="music-list">${musicasHtml}</div>
     </div></div>
   `;
 
