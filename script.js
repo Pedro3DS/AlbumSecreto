@@ -41,20 +41,23 @@ const DIAS = [
   },
   {
     day: 2,
-    date: "2026-07-19",
+    date: "2026-07-20",
     phrase: "Agora a correria começa de verdade. Mas, como você disse, os cursos vão ser fáceis para você, e, sinceramente, nem precisava dizer, porque eu sei o quão talentosa, dedicada e capaz você é. Só não deixe a vontade de fazer tudo perfeito te sobrecarregar. Lembre-se de aproveitar tanto as pessoas à sua volta quanto a cidade, mesmo quando já estiver muito cansadinha. Boa sorte, meu mouse de maracujá com cobertura de chocolate!",
-    song: [{
-      title: "ÁLBUM — RAIZ",
-      artist: "FRAN",
-      cover: "./raiz.jpg",
-      spotifyUrl: "https://open.spotify.com/intl-pt/album/0YetCaCRXkQxlnVAhWBJA5?si=EA9ZMZnLROGsCxWH8LWmLg"
-    },
-    {
-      title: "MÚSICA — VUMBORA AMAR",
-      artist: "ADRIANA CALCANHOTTO, FRAN, UBUNTO",
-      cover: "./vumbora.jpg",
-      spotifyUrl: "https://open.spotify.com/intl-pt/track/2NVXuJjaw6TJHh0raYymLQ?si=fef0a6a1f0be4a50"
-    }]
+    song: [
+      {
+        title: "MÚSICA — VUMBORA AMAR",
+        artist: "ADRIANA CALCANHOTTO, FRAN, UBUNTO",
+        cover: "./vumbora.jpg",
+        spotifyUrl: "https://open.spotify.com/intl-pt/track/2NVXuJjaw6TJHh0raYymLQ?si=fef0a6a1f0be4a50"
+      },
+      {
+        title: "ÁLBUM — RAIZ",
+        artist: "FRAN",
+        cover: "./raiz.jpg",
+        spotifyUrl: "https://open.spotify.com/intl-pt/album/0YetCaCRXkQxlnVAhWBJA5?si=EA9ZMZnLROGsCxWH8LWmLg"
+      }
+
+    ]
   },
   {
     day: 3,
