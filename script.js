@@ -75,8 +75,8 @@ const DIAS = [
     date: "2026-07-22",
     phrase: "Conhecendo você, já deve estar tentando fazer tudo ao mesmo tempo. Só queria te lembrar de uma coisa: você não precisa carregar o mundo inteiro nas costas. Você já é boa o suficiente, mesmo quando decide descansar um pouco. Então aproveita esse lugar, vê o pôr do sol, sente o vento da praia e deixa que alguns momentos existam só para serem vividos.",
     song: {
-      title: "EDITE — nome da música 4",
-      artist: "EDITE — artista 4",
+      title: "MÚSICA — SARÀ PERCHÉ TI AMO",
+      artist: "RICCHI & POVERI",
       cover: "https://placehold.co/200x200/DCCCB4/8A5033?text=capa+4",
       spotifyUrl: "https://open.spotify.com/"
     }
@@ -86,8 +86,8 @@ const DIAS = [
     date: "2026-07-23",
     phrase: "Amanhã provavelmente vai ser o dia mais intenso da viagem. Então hoje eu só queria te pedir uma coisa: descansa quando puder. Você já tem toda a habilidade, dedicação e sensibilidade que precisa para fazer um ótimo trabalho. Não tenta compensar nada nem provar nada. Faz do seu jeito, porque o seu jeito sempre foi suficiente.",
     song: {
-      title: "Álbum — Percorrer em Nós",
-      artist: "ÀVUÀ",
+      title: "MÚSICA — UNIVERSO DE COISAS QUE EU DESCONHEÇO",
+      artist: "LAGUM, ANAVITÓRIA",
       cover: "./Percorrer.jpg",
       spotifyUrl: "https://open.spotify.com/intl-pt/album/5yviPZsValWNPatjlMtbY4?si=b80-4QSnS1KPDUD33SffEA"
     }
@@ -97,8 +97,8 @@ const DIAS = [
     date: "2026-07-24",
     phrase: "Hoje provavelmente vai ser o dia mais cansativo de todos. Sei que você vai dar o seu melhor, porque esse sempre foi o seu jeito. Só promete uma coisa? Não tenta carregar o mundo inteiro nas costas. Respira, confia, vai dar tudo certo. E, como eu aprendi com uma certa pessoinha, eu não vou te desejar boa sorte... mas saiba que vou estar daqui, torcendo muito por você.",
     song: {
-      title: "Álbum — Percorrer em Nós",
-      artist: "ÀVUÀ",
+      title: "MÚSICA — SÓ COM VOCÊ",
+      artist: "VINI NOMINATO",
       cover: "./Percorrer.jpg",
       spotifyUrl: "https://open.spotify.com/intl-pt/album/5yviPZsValWNPatjlMtbY4?si=b80-4QSnS1KPDUD33SffEA"
     }
@@ -108,7 +108,7 @@ const DIAS = [
     date: "2026-07-25",
     phrase: "Enquanto você estiver lendo isso, provavelmente já vai estar voltando para casa... ou talvez já tenha chegado. Espero que essa viagem tenha te lembrado de uma coisa que eu queria muito que você nunca esquecesse: você é muito talentosa. Não porque trabalha sem parar, mas porque coloca um pedaço de você em tudo o que faz. Espero que tenha aprendido bastante, descansado um pouquinho, aproveitado a praia e criado lembranças bonitas. Eu só estava esperando você voltar para poder trocar a saudade pela sua companhia de novo.",
     song: {
-      title: "Álbum — Percorrer em Nós",
+      title: "ÁLBUM — PERCORRER EM NÓS",
       artist: "ÀVUÀ",
       cover: "./Percorrer.jpg",
       spotifyUrl: "https://open.spotify.com/intl-pt/album/5yviPZsValWNPatjlMtbY4?si=b80-4QSnS1KPDUD33SffEA"
