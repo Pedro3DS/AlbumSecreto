@@ -43,28 +43,23 @@ const DIAS = [
     day: 2,
     date: "2026-07-20",
     phrase: "Agora a correria começa de verdade. Mas, como você disse, os cursos vão ser fáceis para você, e, sinceramente, nem precisava dizer, porque eu sei o quão talentosa, dedicada e capaz você é. Só não deixe a vontade de fazer tudo perfeito te sobrecarregar. Lembre-se de aproveitar tanto as pessoas à sua volta quanto a cidade, mesmo quando já estiver muito cansadinha. Boa sorte, meu mouse de maracujá com cobertura de chocolate!",
-    song: [
-      // {
-      //   title: "MÚSICA — VUMBORA AMAR",
-      //   artist: "ADRIANA CALCANHOTTO, FRAN, UBUNTO",
-      //   cover: "./vumbora.jpg",
-      //   spotifyUrl: "https://open.spotify.com/intl-pt/track/2NVXuJjaw6TJHh0raYymLQ?si=fef0a6a1f0be4a50"
-      // },
-      {
-        title: "ÁLBUM — RAIZ",
-        artist: "FRAN",
-        cover: "./raiz.jpg",
-        spotifyUrl: "https://open.spotify.com/intl-pt/album/0YetCaCRXkQxlnVAhWBJA5?si=EA9ZMZnLROGsCxWH8LWmLg"
-      }
+    song:
+    {
+      title: "ÁLBUM — RAIZ",
+      artist: "FRAN",
+      cover: "./raiz.jpg",
+      spotifyUrl: "https://open.spotify.com/intl-pt/album/0YetCaCRXkQxlnVAhWBJA5?si=EA9ZMZnLROGsCxWH8LWmLg"
+    }
 
-    ]
+
   },
   {
     day: 3,
-    date: "2026-07-22",
-    phrase: "Espero que hoje você consiga perceber aquilo que eu já vejo há muito tempo: você é extremamente capaz. Às vezes parece que você esquece disso e exige mais de si do que qualquer outra pessoa exigiria. Então respira. Confia em quem você é. O resto acontece naturalmente.",
+    date: "2026-07-21",
+    phrase: "Tenho certeza de que hoje vai ser um dia cheio de coisas boas. Apesar de terem que dançar e se apresentar, vocês também vão poder aproveitar e conhecer mais da cidade e dos seus lugares. Aproveite cada momento. E, por favor, meu benzinho, controla a mãozinha, viu? A viagem ainda não acabou, e eu não quero receber a notícia de que você faliu antes de voltar para casa. Boa sorte e bom aproveito, meu denguinho!",
+    // selo: "./kiss.gif",
     song: {
-      title: "MÚSICA — SARÀ PERCHÉ TI AMO",
+      title: "MÚSICA — SARÀ PERCÉ TI AMO",
       artist: "RICCHI & POVERI",
       cover: "./sara.jpg",
       spotifyUrl: "https://open.spotify.com/intl-pt/track/6lK2xptPzLPmvpE29U4mDH?si=1fb22bfe04994694"
@@ -129,6 +124,11 @@ const ICONE_FLOR = `
   <svg viewBox="0 0 24 24" fill="#F1E7D8">
     <circle cx="12" cy="12" r="3"></circle>
     <path d="M12 2c1.7 0 3 2 3 4s-1.3 3-3 3-3-1-3-3 1.3-4 3-4zM12 22c1.7 0 3-2 3-4s-1.3-3-3-3-3 1-3 3 1.3 4 3 4zM2 12c0-1.7 2-3 4-3s3 1.3 3 3-1 3-3 3-4-1.3-4-3zM22 12c0-1.7-2-3-4-3s-3 1.3-3 3 1 3 3 3 4-1.3 4-3z"></path>
+  </svg>`;
+
+const ICONE_NOTA = `
+  <svg viewBox="0 0 24 24" fill="currentColor">
+    <path d="M12 3v10.55A4 4 0 1 0 14 17V7h4V3z"></path>
   </svg>`;
 
 /* =========================================================
@@ -259,9 +259,19 @@ function montarCartao(item) {
           <span class="music-title">${song.title}</span>
           <span class="music-artist">${song.artist}</span>
         </div>
-        <span class="play-hint">spotify →</span>
+        <span class="play-hint">${ICONE_NOTA}spotify →</span>
       </div>
   `).join("");
+
+  /* selo-gif é opcional: só aparece se o dia tiver o campo "selo"
+     (um link de imagem ou gif). fica pendurado por cima da música. */
+  const seloHtml = item.selo ? `
+    <div class="selo-carta">
+      <span class="selo-fita selo-fita--a" aria-hidden="true"></span>
+      <span class="selo-fita selo-fita--b" aria-hidden="true"></span>
+      <div class="selo-frame"><img src="${item.selo}" alt="selo do dia" class="selo-gif" loading="lazy"></div>
+    </div>
+  ` : "";
 
   article.innerHTML = `
     <span class="tape" aria-hidden="true"></span>
@@ -285,6 +295,7 @@ function montarCartao(item) {
     <div class="card-content"><div>
       <p class="phrase">${item.phrase}</p>
       ${musicas.length > 1 ? `<p class="music-list-label">álbum e música do dia</p>` : ""}
+      ${seloHtml}
       <div class="music-list">${musicasHtml}</div>
     </div></div>
   `;
@@ -306,11 +317,46 @@ function alternarAbertura(article, item) {
   if (!aberto) article.classList.add("is-ready");
   article.setAttribute("aria-expanded", aberto ? "true" : "false");
   localStorage.setItem(`album-secreto-dia-${item.day}`, aberto ? "aberto" : "fechado");
+  if (aberto) explodirConfete(article);
 }
 
 function tremer(article) {
   article.classList.add("is-shaking");
   setTimeout(() => article.classList.remove("is-shaking"), 400);
+}
+
+/* =========================================================
+   confete: uma chuvinha de coraçõezinhos/estrelas/pétalas
+   que estoura no instante em que o dia é aberto
+   ========================================================= */
+function explodirConfete(article) {
+  const prefereMenosMovimento = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (prefereMenosMovimento) return;
+
+  const formas = ["shape-petal", "shape-heart", "shape-star"];
+  const cores = ["c-petal", "c-sky", "c-berry"];
+
+  const caixa = document.createElement("div");
+  caixa.className = "confete-caixa";
+  caixa.setAttribute("aria-hidden", "true");
+
+  const total = 14;
+  for (let i = 0; i < total; i++) {
+    const p = document.createElement("span");
+    const forma = formas[Math.floor(Math.random() * formas.length)];
+    const cor = cores[Math.floor(Math.random() * cores.length)];
+    p.className = `petal-fall confete-particula ${forma} ${cor}`;
+    const angulo = (Math.PI * 2 * i) / total + Math.random() * 0.4;
+    const distancia = 70 + Math.random() * 50;
+    p.style.setProperty("--tx", `${Math.cos(angulo) * distancia}px`);
+    p.style.setProperty("--ty", `${Math.sin(angulo) * distancia - 20}px`);
+    p.style.setProperty("--rot", `${Math.random() * 500 - 250}deg`);
+    p.style.animationDelay = `${Math.random() * 0.12}s`;
+    caixa.appendChild(p);
+  }
+
+  article.appendChild(caixa);
+  setTimeout(() => caixa.remove(), 1100);
 }
 
 function ligarEventos(article, item, desbloqueado) {
