@@ -61,13 +61,13 @@ const DIAS = [
   },
   {
     day: 3,
-    date: "2026-07-21",
+    date: "2026-07-22",
     phrase: "Espero que hoje você consiga perceber aquilo que eu já vejo há muito tempo: você é extremamente capaz. Às vezes parece que você esquece disso e exige mais de si do que qualquer outra pessoa exigiria. Então respira. Confia em quem você é. O resto acontece naturalmente.",
     song: {
-      title: "MÚSICA — EU & VOCÊ",
-      artist: "MESTRINHO",
-      cover: "./euvoce.jpg",
-      spotifyUrl: "https://open.spotify.com/intl-pt/track/208OvbnQKMT7rcsP8q3BQK?si=fcfd51bba310417b"
+      title: "MÚSICA — SARÀ PERCHÉ TI AMO",
+      artist: "RICCHI & POVERI",
+      cover: "./sara.jpg",
+      spotifyUrl: "https://open.spotify.com/intl-pt/track/6lK2xptPzLPmvpE29U4mDH?si=1fb22bfe04994694"
     }
   },
   {
@@ -77,8 +77,8 @@ const DIAS = [
     song: {
       title: "MÚSICA — SARÀ PERCHÉ TI AMO",
       artist: "RICCHI & POVERI",
-      cover: "https://placehold.co/200x200/DCCCB4/8A5033?text=capa+4",
-      spotifyUrl: "https://open.spotify.com/"
+      cover: "./sara.jpg",
+      spotifyUrl: "https://open.spotify.com/intl-pt/track/6lK2xptPzLPmvpE29U4mDH?si=c2672fe2ea584ce1"
     }
   },
   {
