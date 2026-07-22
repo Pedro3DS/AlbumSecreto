@@ -10,9 +10,9 @@
 const MODO_TESTE = false;
 
 /* Cada dia recebe uma "cor de assinatura" em rodízio — quente (petal),
-   azul pastel (sky) ou vermelha (berry) — só pra dar mais vida e
-   diferenciar visualmente os cartões. Não precisa mexer aqui. */
-const ACCENTS = ["petal", "sky", "berry"];
+   azul pastel (sky), vermelha (berry) ou verde pastel (sage) — só pra dar
+   mais vida e diferenciar visualmente os cartões. Não precisa mexer aqui. */
+const ACCENTS = ["petal", "sky", "berry", "sage"];
 function corDoDia(numeroDoDia) {
   return ACCENTS[(numeroDoDia - 1) % ACCENTS.length];
 }
@@ -57,7 +57,6 @@ const DIAS = [
     day: 3,
     date: "2026-07-21",
     phrase: "Tenho certeza de que hoje vai ser um dia cheio de coisas boas. Apesar de terem que dançar e se apresentar, vocês também vão poder aproveitar e conhecer mais da cidade e dos seus lugares. Aproveite cada momento. E, por favor, meu benzinho, controla a mãozinha, viu? A viagem ainda não acabou, e eu não quero receber a notícia de que você faliu antes de voltar para casa. Boa sorte e bom aproveito, meu denguinho!",
-    // selo: "./kiss.gif",
     song: {
       title: "MÚSICA — SARÀ PERCÉ TI AMO",
       artist: "RICCHI & POVERI",
@@ -67,13 +66,13 @@ const DIAS = [
   },
   {
     day: 4,
-    date: "2026-07-23",
+    date: "2026-07-22",
     phrase: "Conhecendo você, já deve estar tentando fazer tudo ao mesmo tempo. Só queria te lembrar de uma coisa: você não precisa carregar o mundo inteiro nas costas. Você já é boa o suficiente, mesmo quando decide descansar um pouco. Então aproveita esse lugar, vê o pôr do sol, sente o vento da praia e deixa que alguns momentos existam só para serem vividos.",
     song: {
-      title: "MÚSICA — SARÀ PERCHÉ TI AMO",
-      artist: "RICCHI & POVERI",
-      cover: "./sara.jpg",
-      spotifyUrl: "https://open.spotify.com/intl-pt/track/6lK2xptPzLPmvpE29U4mDH?si=c2672fe2ea584ce1"
+      title: "ÁLBUM — AZUL",
+      artist: "AYDAN",
+      cover: "./aydan.jpg",
+      spotifyUrl: "https://open.spotify.com/intl-pt/album/5r6j0rl5oUazjJfI8CWKwY?si=UJZxk2x2Tc-No83W24syoQ"
     }
   },
   {
@@ -145,6 +144,12 @@ function montarCharm(accent, desbloqueado) {
   if (accent === "berry") {
     return `<div class="charm-mini"><div class="heart"></div></div>`;
   }
+  if (accent === "sage") {
+    return `<div class="charm-mini"><div class="flower flower--sage flower--sakura">
+        <span class="petal"></span><span class="petal"></span><span class="petal"></span>
+        <span class="petal"></span><span class="petal"></span><span class="center"></span>
+      </div></div>`;
+  }
   return `<div class="charm-mini"><div class="flower">
       <span class="petal"></span><span class="petal"></span><span class="petal"></span>
       <span class="petal"></span><span class="petal"></span><span class="center"></span>
@@ -197,8 +202,8 @@ function diasEntre(a, b) {
 function criarPetalas() {
   const container = document.getElementById("petals");
   if (!container) return;
-  const formas = ["shape-petal", "shape-heart", "shape-star"];
-  const cores = ["c-petal", "c-sky", "c-berry"];
+  const formas = ["shape-petal", "shape-heart", "shape-star", "shape-leaf"];
+  const cores = ["c-petal", "c-sky", "c-berry", "c-sage"];
   const total = window.innerWidth < 480 ? 7 : 13;
   for (let i = 0; i < total; i++) {
     const p = document.createElement("span");
@@ -333,8 +338,8 @@ function explodirConfete(article) {
   const prefereMenosMovimento = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   if (prefereMenosMovimento) return;
 
-  const formas = ["shape-petal", "shape-heart", "shape-star"];
-  const cores = ["c-petal", "c-sky", "c-berry"];
+  const formas = ["shape-petal", "shape-heart", "shape-star", "shape-leaf"];
+  const cores = ["c-petal", "c-sky", "c-berry", "c-sage"];
 
   const caixa = document.createElement("div");
   caixa.className = "confete-caixa";
@@ -384,6 +389,31 @@ function ligarEventos(article, item, desbloqueado) {
 }
 
 /* =========================================================
+   revelação suave do rodapé quando a rolagem chega até ele
+   (só entra em ação se o navegador suportar e a pessoa não tiver
+   pedido "menos movimento" nas configurações do sistema)
+   ========================================================= */
+function configurarRevelacaoRodape() {
+  const rodape = document.getElementById("site-footer");
+  if (!rodape) return;
+
+  const prefereMenosMovimento = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (prefereMenosMovimento || !("IntersectionObserver" in window)) return;
+
+  rodape.classList.add("reveal-pronto");
+  const observador = new IntersectionObserver((entradas) => {
+    entradas.forEach((entrada) => {
+      if (entrada.isIntersecting) {
+        rodape.classList.add("is-visible");
+        observador.unobserve(rodape);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  observador.observe(rodape);
+}
+
+/* =========================================================
    progresso no topo
    ========================================================= */
 function atualizarProgresso(qtdDesbloqueados, total) {
@@ -411,6 +441,7 @@ function iniciar() {
   });
 
   atualizarProgresso(desbloqueados, DIAS.length);
+  configurarRevelacaoRodape();
 }
 
 document.addEventListener("DOMContentLoaded", iniciar);
