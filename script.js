@@ -67,7 +67,7 @@ const DIAS = [
   },
   {
     day: 4,
-    date: "2026-07-22",
+    date: "2026-07-23",
     phrase: "Conhecendo você, já deve estar tentando fazer tudo ao mesmo tempo. Só queria te lembrar de uma coisa: você não precisa carregar o mundo inteiro nas costas. Você já é boa o suficiente, mesmo quando decide descansar um pouco. Então aproveita esse lugar, vê o pôr do sol, sente o vento da praia e deixa que alguns momentos existam só para serem vividos.",
     song: {
       title: "MÚSICA — SARÀ PERCHÉ TI AMO",
