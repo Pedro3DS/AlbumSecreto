@@ -1,7 +1,6 @@
 /* =========================================================
    ÁLBUM SECRETO — estilos
-   Paleta base: #97A3AE (ardósia) · #DCCCB4 (papel) · #8A5033 (cacau)
-   Cores de assinatura dos dias: pêssego, azul-céu, vermelho e verde-sálvia
+   Paleta: #97A3AE (ardósia) · #DCCCB4 (papel) · #8A5033 (cacau)
    ========================================================= */
 
 :root {
@@ -23,11 +22,6 @@
   --berry: #C1493C;
   --berry-dark: #9A392E;
   --berry-light: #E0998D;
-
-  /* verde pastel, quarta cor de assinatura */
-  --sage: #A9C9A0;
-  --sage-dark: #74996B;
-  --sage-light: #D9E9D3;
 
   --shadow: rgba(74, 50, 38, 0.20);
 
@@ -97,12 +91,6 @@ body {
   clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
 }
 
-.petal-fall.shape-leaf {
-  width: 13px;
-  height: 8px;
-  border-radius: 0% 100% 0% 100%;
-}
-
 .petal-fall.c-petal {
   background: var(--petal-light);
 }
@@ -113,10 +101,6 @@ body {
 
 .petal-fall.c-berry {
   background: var(--berry-light);
-}
-
-.petal-fall.c-sage {
-  background: var(--sage-light);
 }
 
 @keyframes fall {
@@ -201,27 +185,6 @@ body {
 .flower--berry {
   --charm-1: var(--berry);
   --charm-2: var(--berry-dark);
-}
-
-.flower--sage {
-  --charm-1: var(--sage);
-  --charm-2: var(--sage-dark);
-}
-
-/* ---- espécies de flor: mudam o formato da pétala, não só a cor ----
-   .flower--daisy  -> margarida, pétalas finas e compridas
-   .flower--sakura -> flor-de-cerejeira, pétala arredondada com ponta entalhada */
-.flower--daisy .petal {
-  width: 8px;
-  height: 27px;
-  border-radius: 50%;
-}
-
-.flower--sakura .petal {
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  clip-path: polygon(50% 100%, 6% 55%, 20% 12%, 50% 30%, 80% 12%, 94% 55%);
 }
 
 /* =========================================================
@@ -494,11 +457,6 @@ body {
 .day-card.accent-berry {
   --accent: var(--berry);
   --accent-light: var(--berry-light);
-}
-
-.day-card.accent-sage {
-  --accent: var(--sage-dark);
-  --accent-light: var(--sage-light);
 }
 
 .day-card .tape {
@@ -1010,81 +968,9 @@ body {
   text-align: center;
 }
 
-/* enquanto o JS não confirmar que o rodapé entrou na tela, ele começa
-   quase invisível e sobe de leve — só quando há suporte a isso e a
-   pessoa não pediu "menos movimento" (ver .reveal-pronto mais abaixo) */
-.site-footer.reveal-pronto {
-  opacity: 0;
-  transform: translateY(16px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
-}
-
-.site-footer.reveal-pronto.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* linha fininha que fecha a "carta" antes da assinatura */
-.footer-divider {
-  width: 130px;
-  height: 1px;
-  margin: 0 auto 30px;
-  background: linear-gradient(90deg, transparent, var(--slate) 55%, transparent);
-  opacity: 0.55;
-}
-
-/* pequeno buquê: 3 espécies de flor diferentes + laço amarrando os caules */
-.footer-bouquet {
-  position: relative;
-  width: 130px;
-  height: 62px;
-  margin: 0 auto 10px;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  transform-origin: 50% 100%;
-  animation: bouquet-sway 6s ease-in-out infinite;
-}
-
 .footer-flower {
-  position: relative;
-}
-
-.footer-flower--a {
-  transform: scale(0.5) rotate(-14deg);
-  margin: 0 -12px 4px 0;
-}
-
-.footer-flower--b {
-  transform: scale(0.74);
-  z-index: 2;
-}
-
-.footer-flower--c {
-  transform: scale(0.5) rotate(14deg);
-  margin: 0 0 4px -12px;
-}
-
-.footer-bow {
-  position: absolute;
-  bottom: -8px;
-  left: 50%;
-  width: 40px;
-  height: 24px;
-  transform: translateX(-50%) scale(0.6);
-  z-index: 1;
-}
-
-@keyframes bouquet-sway {
-
-  0%,
-  100% {
-    transform: rotate(-2deg);
-  }
-
-  50% {
-    transform: rotate(2deg);
-  }
+  margin: 0 auto 6px;
+  transform: scale(0.7);
 }
 
 .footer-text {
@@ -1095,15 +981,6 @@ body {
 }
 
 .footer-text strong {
-  color: var(--cocoa-dark);
-}
-
-/* despedida final, com o mesmo ar de "escrito à mão" do título */
-.footer-signoff {
-  margin: 10px 0 0;
-  font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 1.55rem;
   color: var(--cocoa-dark);
 }
 
@@ -1217,16 +1094,6 @@ body {
 
   .heartbeat {
     animation: none;
-  }
-
-  .footer-bouquet {
-    animation: none;
-  }
-
-  .site-footer.reveal-pronto {
-    opacity: 1;
-    transform: none;
-    transition: none;
   }
 
   .confete-caixa {
