@@ -77,13 +77,13 @@ const DIAS = [
   },
   {
     day: 5,
-    date: "2026-07-24",
-    phrase: "Amanhã provavelmente vai ser o dia mais intenso da viagem. Então hoje eu só queria te pedir uma coisa: descansa quando puder. Você já tem toda a habilidade, dedicação e sensibilidade que precisa para fazer um ótimo trabalho. Não tenta compensar nada nem provar nada. Faz do seu jeito, porque o seu jeito sempre foi suficiente.",
+    date: "2026-07-23",
+    phrase: "Hoje é o penúltimo dia dessa viagem. Espero que seja um dia tranquilo, cheio de momentos bons. Tenho certeza de que tudo vai dar certo, como sempre dá quando você coloca seu talento nas coisas que faz. Mas, acima de tudo, quero que você se cuide, descanse quando puder e aproveite o que puder dessa cidade que eu sei o quanto você está amando. Infelizmente já está quase acabando, né? Então guarda mais algumas lembranças bonitas para trazer de volta junto com você. Boa sorte, meu bem.",
     song: {
       title: "MÚSICA — UNIVERSO DE COISAS QUE EU DESCONHEÇO",
       artist: "LAGUM, ANAVITÓRIA",
-      cover: "./Percorrer.jpg",
-      spotifyUrl: "https://open.spotify.com/intl-pt/album/5yviPZsValWNPatjlMtbY4?si=b80-4QSnS1KPDUD33SffEA"
+      cover: "./universo.jpg",
+      spotifyUrl: "https://open.spotify.com/intl-pt/track/4f7phfIoOpIhSI8tIK11f6?si=171d8ee08d724b65"
     }
   },
   {
