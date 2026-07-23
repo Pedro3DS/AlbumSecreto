@@ -78,7 +78,7 @@ const DIAS = [
   {
     day: 5,
     date: "2026-07-23",
-    phrase: "Hoje é o penúltimo dia dessa viagem. Espero que seja um dia tranquilo, cheio de momentos bons. Tenho certeza de que tudo vai dar certo, como sempre dá quando você coloca seu talento nas coisas que faz. Mas, acima de tudo, quero que você se cuide, descanse quando puder e aproveite o que puder dessa cidade que eu sei o quanto você está amando. Infelizmente já está quase acabando, né? Então guarda mais algumas lembranças bonitas para trazer de volta junto com você. Boa sorte, meu bem.",
+    phrase: `Hoje é o penúltimo dia dessa viagem. <br>Gostaria que fosse um dia tranquilo, mas sei que será um dia cheio e muito corrido. Porém, não seria você se não estivesse cheia de apresentações para fazer, né? <br>Tenho certeza de que tudo vai dar certo, como sempre dá quando você coloca seu talento nas coisas que faz. Mas, acima de tudo, quero que você se cuide, descanse quando puder e aproveite o que puder de São Francisco e de Joinville, que eu sei o quanto você está amando. <br>Infelizmente, já está quase acabando, né? Então guarda mais algumas lembranças bonitas para trazer de volta junto com você. <br>Boa sorte, meu bem. 🩵`,
     song: {
       title: "MÚSICA — UNIVERSO DE COISAS QUE EU DESCONHEÇO",
       artist: "LAGUM, ANAVITÓRIA",
