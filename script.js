@@ -77,7 +77,7 @@ const DIAS = [
   },
   {
     day: 5,
-    date: "2026-07-23",
+    date: "2026-07-24",
     phrase: "Amanhã provavelmente vai ser o dia mais intenso da viagem. Então hoje eu só queria te pedir uma coisa: descansa quando puder. Você já tem toda a habilidade, dedicação e sensibilidade que precisa para fazer um ótimo trabalho. Não tenta compensar nada nem provar nada. Faz do seu jeito, porque o seu jeito sempre foi suficiente.",
     song: {
       title: "MÚSICA — UNIVERSO DE COISAS QUE EU DESCONHEÇO",
