@@ -89,7 +89,7 @@ const DIAS = [
   {
     day: 6,
     date: "2026-07-24",
-    phrase: "Então, enfim, chegou o último dia dessa viagem. <br>Infelizmente, já é hora de encerrar mais uma experiência que eu sei que vai ficar guardada com muito carinho. Hoje é sua última apresentação, e eu não tenho dúvida de que você vai dar o seu melhor, porque esse sempre foi o seu jeito. Aproveita cada segundo desse encerramento, porque eu sei o quanto esse festival e essa cidade significaram para você. <br>Se cuide e boa viagem de volta, minha linda tulipa peônia!🌷",
+    phrase: "Então, enfim, chegou o último dia dessa viagem. <br>Infelizmente, já é hora de encerrar mais uma experiência que eu sei que vai ficar guardada com muito carinho. Hoje é sua última apresentação, e eu não tenho dúvida de que você vai dar o seu melhor, porque esse sempre foi o seu jeito. Aproveita cada segundo desse encerramento, porque eu sei o quanto esse festival e essa cidade significaram para você. <br>Se cuide, minha linda tulipa peônia!🌷",
     song: {
       title: "MÚSICA — SÓ COM VOCÊ",
       artist: "VINI NOMINATO",
