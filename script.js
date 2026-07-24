@@ -89,19 +89,12 @@ const DIAS = [
   {
     day: 6,
     date: "2026-07-24",
-    // phrase: "Hoje provavelmente vai ser o dia mais cansativo de todos. Sei que você vai dar o seu melhor, porque esse sempre foi o seu jeito. Só promete uma coisa? Não tenta carregar o mundo inteiro nas costas. Respira, confia, vai dar tudo certo. E, como eu aprendi com uma certa pessoinha, eu não vou te desejar boa sorte... mas saiba que vou estar daqui, torcendo muito por você.",
-    // song: {
-    //   title: "MÚSICA — SÓ COM VOCÊ",
-    //   artist: "VINI NOMINATO",
-    //   cover: "./Percorrer.jpg",
-    //   spotifyUrl: "https://open.spotify.com/intl-pt/album/5yviPZsValWNPatjlMtbY4?si=b80-4QSnS1KPDUD33SffEA"
-    // }
-    phrase: "",
+    phrase: "Então, enfim, chegou o último dia dessa viagem. <br>Infelizmente, já é hora de encerrar mais uma experiência que eu sei que vai ficar guardada com muito carinho. Hoje é sua última apresentação, e eu não tenho dúvida de que você vai dar o seu melhor, porque esse sempre foi o seu jeito. Aproveita cada segundo desse encerramento, porque eu sei o quanto esse festival e essa cidade significaram para você. <br>Se cuide e boa viagem de volta, minha linda tulipa peônia!🌷",
     song: {
-      title: "",
-      artist: "",
-      cover: "",
-      spotifyUrl: ""
+      title: "MÚSICA — SÓ COM VOCÊ",
+      artist: "VINI NOMINATO",
+      cover: "./vini.jpg",
+      spotifyUrl: "https://open.spotify.com/intl-pt/track/6yU6bwP6s3iwFu2F8N0KQs?si=f9f6591c9b4442a8"
     }
   },
   {
