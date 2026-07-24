@@ -89,23 +89,37 @@ const DIAS = [
   {
     day: 6,
     date: "2026-07-24",
-    phrase: "Hoje provavelmente vai ser o dia mais cansativo de todos. Sei que você vai dar o seu melhor, porque esse sempre foi o seu jeito. Só promete uma coisa? Não tenta carregar o mundo inteiro nas costas. Respira, confia, vai dar tudo certo. E, como eu aprendi com uma certa pessoinha, eu não vou te desejar boa sorte... mas saiba que vou estar daqui, torcendo muito por você.",
+    // phrase: "Hoje provavelmente vai ser o dia mais cansativo de todos. Sei que você vai dar o seu melhor, porque esse sempre foi o seu jeito. Só promete uma coisa? Não tenta carregar o mundo inteiro nas costas. Respira, confia, vai dar tudo certo. E, como eu aprendi com uma certa pessoinha, eu não vou te desejar boa sorte... mas saiba que vou estar daqui, torcendo muito por você.",
+    // song: {
+    //   title: "MÚSICA — SÓ COM VOCÊ",
+    //   artist: "VINI NOMINATO",
+    //   cover: "./Percorrer.jpg",
+    //   spotifyUrl: "https://open.spotify.com/intl-pt/album/5yviPZsValWNPatjlMtbY4?si=b80-4QSnS1KPDUD33SffEA"
+    // }
+    phrase: "",
     song: {
-      title: "MÚSICA — SÓ COM VOCÊ",
-      artist: "VINI NOMINATO",
-      cover: "./Percorrer.jpg",
-      spotifyUrl: "https://open.spotify.com/intl-pt/album/5yviPZsValWNPatjlMtbY4?si=b80-4QSnS1KPDUD33SffEA"
+      title: "",
+      artist: "",
+      cover: "",
+      spotifyUrl: ""
     }
   },
   {
     day: 7,
     date: "2026-07-25",
-    phrase: "Enquanto você estiver lendo isso, provavelmente já vai estar voltando para casa... ou talvez já tenha chegado. Espero que essa viagem tenha te lembrado de uma coisa que eu queria muito que você nunca esquecesse: você é muito talentosa. Não porque trabalha sem parar, mas porque coloca um pedaço de você em tudo o que faz. Espero que tenha aprendido bastante, descansado um pouquinho, aproveitado a praia e criado lembranças bonitas. Eu só estava esperando você voltar para poder trocar a saudade pela sua companhia de novo.",
+    // phrase: "Enquanto você estiver lendo isso, provavelmente já vai estar voltando para casa... ou talvez já tenha chegado. Espero que essa viagem tenha te lembrado de uma coisa que eu queria muito que você nunca esquecesse: você é muito talentosa. Não porque trabalha sem parar, mas porque coloca um pedaço de você em tudo o que faz. Espero que tenha aprendido bastante, descansado um pouquinho, aproveitado a praia e criado lembranças bonitas. Eu só estava esperando você voltar para poder trocar a saudade pela sua companhia de novo.",
+    // song: {
+    //   title: "ÁLBUM — PERCORRER EM NÓS",
+    //   artist: "ÀVUÀ",
+    //   cover: "./Percorrer.jpg",
+    //   spotifyUrl: "https://open.spotify.com/intl-pt/album/5yviPZsValWNPatjlMtbY4?si=b80-4QSnS1KPDUD33SffEA"
+    // }
+    phrase: "--------------",
     song: {
-      title: "ÁLBUM — PERCORRER EM NÓS",
-      artist: "ÀVUÀ",
-      cover: "./Percorrer.jpg",
-      spotifyUrl: "https://open.spotify.com/intl-pt/album/5yviPZsValWNPatjlMtbY4?si=b80-4QSnS1KPDUD33SffEA"
+      title: "------",
+      artist: "----",
+      cover: "-----",
+      spotifyUrl: "-----------"
     }
   }
 ];
